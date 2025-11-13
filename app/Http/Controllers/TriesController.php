@@ -61,6 +61,7 @@ class TriesController extends Controller
 
     public function storeTen(Request $request)
     {
+        $teams = 1000;
         $teams = [
             ['name' => 'Pepito', 'estudios' => 'ASI'],
             ['name' => 'Pepita', 'estudios' => 'ASI'],
