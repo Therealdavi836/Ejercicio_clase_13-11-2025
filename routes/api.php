@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,15 @@ Route::middleware(['filter.ip'])->group(function () {
         return response()->json(['message' => 'OK']);
     });
 });
+Route::post('/create_user', \App\Http\Controllers\AuthController::class,'create_user');
+Route::post('/login', \App\Http\Controllers\AuthController::class,'login');
+
+
+
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::post('/logout', [UserController::class,'logout']);
+    Route::post('/change_password', [UserController::class,'change_password']);
+});
+
+
+
