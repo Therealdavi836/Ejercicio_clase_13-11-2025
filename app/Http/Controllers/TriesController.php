@@ -81,7 +81,7 @@ class TriesController extends Controller
 
         return response()->json([
             'message' => '10 tries guardados exitosamente',
-            'data' => Tries::latest()->take(10)->get()
+            'data' => Tries::latest()->take(1000)->get()
         ], 201);
     }
 }
