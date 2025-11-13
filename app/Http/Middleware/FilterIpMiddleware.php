@@ -17,7 +17,7 @@ class FilterIpMiddleware
         $ip = $request->ip();
         $key = 'requests_per_minute_' . $ip;
 
-        $limit = 1000;   // máximo
+        $limit = 10;   // máximo
         $decay = 60;  // segundos
 
         // Crear la clave si no existe (con valor 0 y expira en $decay segundos)

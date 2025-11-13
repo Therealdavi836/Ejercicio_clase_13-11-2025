@@ -14,11 +14,12 @@ class TriesController extends Controller
      */
     public function index(Request $request)
     {
-        $perPage = $request->input('per_page', 10);
+        //$perPage = $request->input('per_page', 10);
 
-        $teams = Tries::paginate($perPage);
+        $teams = Tries::all();
+        //$teams = Tries::paginate($perPage);
 
-        return response()->json($teams);
+        return response()->json($teams, 200);
     }
 
     /**
